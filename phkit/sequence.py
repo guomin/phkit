@@ -12,6 +12,7 @@ from .phoneme import shengyun2ph_dict, diao2ph_dict, char2ph_dict
 from .pinyin import text2pinyin, split_pinyin
 from .symbol import _chain, _eos, _pad, symbol_chinese
 from .convert import fan2jian, quan2ban
+from .number import convert_number
 import re
 
 # 分隔英文字母
@@ -133,6 +134,7 @@ def py_errors(text):
 def normalize_chinese(text):
     text = quan2ban(text)
     text = fan2jian(text)
+    text = convert_number(text)
     return text
 
 

@@ -60,8 +60,22 @@ def say_decimal(num: str):
     return z_cn + '点' + x_cn
 
 
+def convert_number(text):
+    parts = _number_group_re.split(text)
+    outs = []
+    for elem in parts:
+        if elem.isdigit():
+            if len(elem) <= 9:
+                outs.append(say_number(elem))
+            else:
+                outs.append(say_digit(elem))
+        else:
+            outs.append(elem)
+    return ''.join(outs)
+
 if __name__ == "__main__":
     print(__file__)
     assert say_number("1234567890123456") == "一千二百三十四万五千六百七十八亿九千零一十二万三千四百五十六"
     assert say_digit("123456") == "一二三四五六"
     assert say_decimal("3.14") == "三点一四"
+    assert convert_number("hello314.1592and2718281828") == "hello三百一十四.一千五百九十二and二七一八二八一八二八"

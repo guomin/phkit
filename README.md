@@ -8,6 +8,10 @@ phoneme toolkit: 音素相关的文本处理工具箱。
 pip install -U phkit
 ```
 
+### v0.1.0
+- Add English phonemes and text_to_sequence.
+- Add simple say number for Chinese.
+
 todo:
 文本正则化处理
 数字读法
@@ -31,7 +35,7 @@ OOV
 依存句法分析
 
 ### 版本
-v0.0.4
+v0.1.0
 
 ### symbol
 音素标记。
@@ -91,3 +95,16 @@ _ ~  - *
 文本转换。
 
 全角半角转换，简体繁体转换。
+
+### english
+
+from https://github.com/keithito/tacotron "
+Cleaners are transformations that run over the input text at both training and eval time.
+
+Cleaners can be selected by passing a comma-delimited list of cleaner names as the "cleaners"
+hyperparameter. Some cleaners are English-specific. You'll typically want to use:
+  1. "english_cleaners" for English text
+  2. "transliteration_cleaners" for non-English text that can be transliterated to ASCII using
+     the Unidecode library (https://pypi.python.org/pypi/Unidecode)
+  3. "basic_cleaners" if you do not want to transliterate (in this case, you should also update
+     the symbols in symbols.py to match your data).

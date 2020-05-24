@@ -36,10 +36,10 @@ requires = install_requires
 # [w.strip() for w in open("requirements.txt", encoding="utf8") if w.strip()]
 
 def create_readme():
-    from phkit import __doc__, version_doc, doc_convert, doc_number, doc_phoneme, doc_pinyin, doc_sequence, doc_symbol
+    from phkit import __doc__, version_doc, doc_convert, doc_number, doc_phoneme, doc_pinyin, doc_sequence, doc_symbol, doc_english
     docs = []
     with open("README.md", "wt", encoding="utf8") as fout:
-        for doc in [__doc__, version_doc, doc_symbol, doc_sequence, doc_pinyin, doc_phoneme, doc_number, doc_convert]:
+        for doc in [__doc__, version_doc, doc_symbol, doc_sequence, doc_pinyin, doc_phoneme, doc_number, doc_convert, doc_english]:
             fout.write(doc)
             docs.append(doc)
     return "".join(docs)

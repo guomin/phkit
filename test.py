@@ -31,3 +31,4 @@ def test_phkit():
 
 if __name__ == "__main__":
     print(__file__)
+    test_phkit()
