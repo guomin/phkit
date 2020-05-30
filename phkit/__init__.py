@@ -12,9 +12,13 @@ phoneme toolkit: 音素相关的文本处理工具箱。
 pip install -U phkit
 ```
 
+### v0.2.0
+- 增加文本转拼音的模块，依赖python-pinyin，jieba，phrase-pinyin-data模块。
+- 中文的音素方案移动到chinese模块。
+
 ### v0.1.0
-- Add English phonemes and text_to_sequence.
-- Add simple say number for Chinese.
+- 增加英文版本的音素方案，包括英文字母和英文音素。
+- 增加简单的数字转中文的方法。
 
 todo:
 文本正则化处理
@@ -39,27 +43,39 @@ OOV
 依存句法分析
 """
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 version_doc = """
 ### 版本
 v{}
 """.format(__version__)
 
-from .symbol import __doc__ as doc_symbol
-from .sequence import __doc__ as doc_sequence
-from .pinyin import __doc__ as doc_pinyin
-from .phoneme import __doc__ as doc_phoneme
-from .number import __doc__ as doc_number
-from .convert import __doc__ as doc_convert
+from phkit.chinese import __doc__ as doc_chinese
+from phkit.chinese.symbol import __doc__ as doc_symbol
+from phkit.chinese.sequence import __doc__ as doc_sequence
+from phkit.chinese.pinyin import __doc__ as doc_pinyin
+from phkit.chinese.phoneme import __doc__ as doc_phoneme
+from phkit.chinese.number import __doc__ as doc_number
+from phkit.chinese.convert import __doc__ as doc_convert
 from .english import __doc__ as doc_english
+from .pinyinkit import __doc__ as doc_pinyinkit
 
-from .convert import fan2jian, jian2fan, quan2ban, ban2quan
-from .number import say_digit, say_decimal, say_number
-from .pinyin import text2pinyin, split_pinyin
-from .sequence import text2sequence, text2phoneme, pinyin2phoneme, phoneme2sequence, sequence2phoneme
-from .sequence import symbol_chinese, ph2id_dict, id2ph_dict
+readme_docs = [__doc__, version_doc,
+        doc_pinyinkit,
+        doc_chinese, doc_symbol, doc_sequence, doc_pinyin, doc_phoneme, doc_number, doc_convert,
+        doc_english]
+
 from .english import text_to_sequence as english_text_to_sequence, sequence_to_text as english_sequence_to_text
+from .pinyinkit import lazy_pinyin, pinyin, slug, initialize
+
+# 兼容0.1.0之前的版本。
+from .chinese import convert, number, phoneme, sequence, symbol
+from .chinese.convert import fan2jian, jian2fan, quan2ban, ban2quan
+from .chinese.number import say_digit, say_decimal, say_number
+from .chinese.pinyin import text2pinyin, split_pinyin
+from .chinese.sequence import text2sequence, text2phoneme, pinyin2phoneme, phoneme2sequence, sequence2phoneme
+from .chinese.sequence import symbol_chinese, ph2id_dict, id2ph_dict
+
 
 if __name__ == "__main__":
     print(__file__)

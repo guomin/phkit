@@ -36,10 +36,10 @@ requires = install_requires
 # [w.strip() for w in open("requirements.txt", encoding="utf8") if w.strip()]
 
 def create_readme():
-    from phkit import __doc__, version_doc, doc_convert, doc_number, doc_phoneme, doc_pinyin, doc_sequence, doc_symbol, doc_english
+    from phkit import readme_docs
     docs = []
     with open("README.md", "wt", encoding="utf8") as fout:
-        for doc in [__doc__, version_doc, doc_symbol, doc_sequence, doc_pinyin, doc_phoneme, doc_number, doc_convert, doc_english]:
+        for doc in readme_docs:
             fout.write(doc)
             docs.append(doc)
     return "".join(docs)
@@ -69,7 +69,8 @@ setup(
     install_requires=install_requires,  # 指定项目最低限度需要运行的依赖项
     python_requires='>=3.5',  # python的依赖关系
     package_data={
-        'info': ['README.md', 'requirements.txt'],
+        'txt': ['requirements.txt'],
+        'md': ['**/*.md', '*.md'],
     },  # 包数据，通常是与软件包实现密切相关的数据
     classifiers=[
         'Intended Audience :: Developers',

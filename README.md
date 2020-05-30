@@ -8,9 +8,13 @@ phoneme toolkit: 音素相关的文本处理工具箱。
 pip install -U phkit
 ```
 
+### v0.2.0
+- 增加文本转拼音的模块，依赖python-pinyin，jieba，phrase-pinyin-data模块。
+- 中文的音素方案移动到chinese模块。
+
 ### v0.1.0
-- Add English phonemes and text_to_sequence.
-- Add simple say number for Chinese.
+- 增加英文版本的音素方案，包括英文字母和英文音素。
+- 增加简单的数字转中文的方法。
 
 todo:
 文本正则化处理
@@ -35,13 +39,12 @@ OOV
 依存句法分析
 
 ### 版本
-v0.1.0
+v0.2.0
 
-### symbol
-音素标记。
+## pinyinkit
+文本转拼音的模块，依赖python-pinyin，jieba，phrase-pinyin-data模块。
 
-中文音素，简单英文音素，简单中文音素。
-
+## chinese
 适用于中文、英文和中英混合的音素，其中汉字拼音采用清华大学的音素，英文字符分字母和英文。
 
 中文音素简介：
@@ -71,6 +74,10 @@ w y 0 6 7 8 9
 其他：
 _ ~  - *
 
+### symbol
+音素标记。
+中文音素，简单英文音素，简单中文音素。
+
 ### sequence
 转为序列的方法，文本转为音素列表，文本转为ID列表。
 
@@ -96,7 +103,7 @@ _ ~  - *
 
 全角半角转换，简体繁体转换。
 
-### english
+## english
 
 from https://github.com/keithito/tacotron "
 Cleaners are transformations that run over the input text at both training and eval time.

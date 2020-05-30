@@ -1,16 +1,11 @@
-#!usr/bin/env python
-# -*- coding: utf-8 -*-
-# author: kuangdd
-# date: 2020/2/17
 """
-### pinyin
-转为拼音的方法，汉字转拼音，分离声调。
-
-拼音为字母+数字形式，例如pin1。
+## pinyinkit
+文本转拼音的模块，依赖python-pinyin，jieba，phrase-pinyin-data模块。
 """
-from pypinyin import lazy_pinyin, Style
 import re
+from .core import lazy_pinyin, pinyin, slug, Style, initialize
 
+# 兼容0.1.0之前的版本。
 # 音调：5为轻声
 _diao_re = re.compile(r"([012345]$)")
 
