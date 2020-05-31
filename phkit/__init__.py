@@ -3,6 +3,8 @@
 # author: kuangdd
 # date: 2020/2/17
 """
+![phkit](phkit.png "phkit")
+
 ## phkit
 phoneme toolkit: 音素相关的文本处理工具箱。
 

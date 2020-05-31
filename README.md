@@ -1,4 +1,6 @@
 
+![phkit](phkit.png "phkit")
+
 ## phkit
 phoneme toolkit: 音素相关的文本处理工具箱。
 
