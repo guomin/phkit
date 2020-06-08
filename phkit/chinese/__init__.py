@@ -32,5 +32,45 @@ _ ~  - *
 from .convert import fan2jian, jian2fan, quan2ban, ban2quan
 from .number import say_digit, say_decimal, say_number
 from .pinyin import text2pinyin, split_pinyin
-from .sequence import text2sequence, text2phoneme, pinyin2phoneme, phoneme2sequence, sequence2phoneme
+from .sequence import text2sequence, text2phoneme, pinyin2phoneme, phoneme2sequence, sequence2phoneme, change_diao
 from .sequence import symbol_chinese, ph2id_dict, id2ph_dict
+
+from .symbol import symbol_chinese as symbols
+from .phoneme import shengyun2ph_dict
+
+
+def text_to_sequence(src, cleaner_names=None,  **kwargs):
+    """
+    文本样例：卡尔普陪外孙玩滑梯。
+    拼音样例：ka3 er3 pu3 pei2 wai4 sun1 wan2 hua2 ti1 .
+    :param src: str,拼音或文本字符串
+    :param cleaner_names: 文本处理方法选择，暂时提供拼音和文本两种方法。
+    :return: list,ID列表
+    """
+    if cleaner_names == "pinyin":
+        pys = []
+        for py in src.split():
+            if py.isalnum():
+                pys.append(py)
+            else:
+                pys.append((py,))
+        phs = pinyin2phoneme(pys)
+        phs = change_diao(phs)
+        seq = phoneme2sequence(phs)
+        return seq
+    else:
+        return text2sequence(src)
+
+
+def sequence_to_text(src):
+    out = sequence2phoneme(src)
+    return " ".join(out)
+
+
+if __name__ == "__main__":
+    print(__file__)
+    text = "ka3 er3 pu3 pei2 wai4 sun1 wan2 hua2 ti1 . "
+    out = text_to_sequence(text)
+    print(out)
+    out = sequence_to_text(out)
+    print(out)

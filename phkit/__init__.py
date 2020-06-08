@@ -14,6 +14,10 @@ phoneme toolkit: 音素相关的文本处理工具箱。
 pip install -U phkit
 ```
 
+### v0.2.1
+- 增加中文的text_to_sequence方法，可替换英文版本应对中文环境。
+- 兼容v0.1.0（含）之前版本需要在python3.7（含）版本以上，否则请改为从phkit.chinese导入模块。
+
 ### v0.2.0
 - 增加文本转拼音的模块，依赖python-pinyin，jieba，phrase-pinyin-data模块。
 - 中文的音素方案移动到chinese模块。
@@ -45,7 +49,7 @@ OOV
 依存句法分析
 """
 
-__version__ = "0.2.0"
+__version__ = "0.2.1"
 
 version_doc = """
 ### 版本
@@ -67,10 +71,11 @@ readme_docs = [__doc__, version_doc,
         doc_chinese, doc_symbol, doc_sequence, doc_pinyin, doc_phoneme, doc_number, doc_convert,
         doc_english]
 
+from .chinese import text_to_sequence as chinese_text_to_sequence, sequence_to_text as chinese_sequence_to_text
 from .english import text_to_sequence as english_text_to_sequence, sequence_to_text as english_sequence_to_text
 from .pinyinkit import lazy_pinyin, pinyin, slug, initialize
 
-# 兼容0.1.0之前的版本。
+# 兼容0.1.0之前的版本，python3.7以上版本支持。
 from .chinese import convert, number, phoneme, sequence, symbol
 from .chinese.convert import fan2jian, jian2fan, quan2ban, ban2quan
 from .chinese.number import say_digit, say_decimal, say_number
