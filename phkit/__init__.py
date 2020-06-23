@@ -14,6 +14,9 @@ phoneme toolkit: 音素相关的文本处理工具箱。
 pip install -U phkit
 ```
 
+### v0.2.2
+- 修正安装依赖报错问题。
+
 ### v0.2.1
 - 增加中文的text_to_sequence方法，可替换英文版本应对中文环境。
 - 兼容v0.1.0（含）之前版本需要在python3.7（含）版本以上，否则请改为从phkit.chinese导入模块。
@@ -48,8 +51,7 @@ OOV
 命名实体识别
 依存句法分析
 """
-
-__version__ = "0.2.1"
+__version__ = "0.2.2"
 
 version_doc = """
 ### 版本
@@ -67,9 +69,9 @@ from .english import __doc__ as doc_english
 from .pinyinkit import __doc__ as doc_pinyinkit
 
 readme_docs = [__doc__, version_doc,
-        doc_pinyinkit,
-        doc_chinese, doc_symbol, doc_sequence, doc_pinyin, doc_phoneme, doc_number, doc_convert,
-        doc_english]
+               doc_pinyinkit,
+               doc_chinese, doc_symbol, doc_sequence, doc_pinyin, doc_phoneme, doc_number, doc_convert,
+               doc_english]
 
 from .chinese import text_to_sequence as chinese_text_to_sequence, sequence_to_text as chinese_sequence_to_text
 from .english import text_to_sequence as english_text_to_sequence, sequence_to_text as english_sequence_to_text
@@ -82,7 +84,6 @@ from .chinese.number import say_digit, say_decimal, say_number
 from .chinese.pinyin import text2pinyin, split_pinyin
 from .chinese.sequence import text2sequence, text2phoneme, pinyin2phoneme, phoneme2sequence, sequence2phoneme
 from .chinese.sequence import symbol_chinese, ph2id_dict, id2ph_dict
-
 
 if __name__ == "__main__":
     print(__file__)

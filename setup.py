@@ -23,7 +23,6 @@ password: admin
 """
 
 from setuptools import setup, find_packages
-from phkit import __version__ as phkit_version
 import os
 import logging
 
@@ -32,8 +31,6 @@ logger = logging.getLogger(os.path.splitext(os.path.basename(__name__))[0])
 install_requires = ['pypinyin', 'hanziconv', 'jieba', 'tqdm', 'inflect', 'unidecode']
 requires = install_requires
 
-
-# [w.strip() for w in open("requirements.txt", encoding="utf8") if w.strip()]
 
 def create_readme():
     from phkit import readme_docs
@@ -53,8 +50,10 @@ def pip_install():
             logger.info("pip install {} failed".format(pkg))
 
 
-phkit_doc = create_readme()
 pip_install()
+phkit_doc = create_readme()
+
+from phkit import __version__ as phkit_version
 
 setup(
     name="phkit",

@@ -10,6 +10,9 @@ phoneme toolkit: 音素相关的文本处理工具箱。
 pip install -U phkit
 ```
 
+### v0.2.2
+- 修正安装依赖报错问题。
+
 ### v0.2.1
 - 增加中文的text_to_sequence方法，可替换英文版本应对中文环境。
 - 兼容v0.1.0（含）之前版本需要在python3.7（含）版本以上，否则请改为从phkit.chinese导入模块。
@@ -45,7 +48,7 @@ OOV
 依存句法分析
 
 ### 版本
-v0.2.1
+v0.2.2
 
 ## pinyinkit
 文本转拼音的模块，依赖python-pinyin，jieba，phrase-pinyin-data模块。
