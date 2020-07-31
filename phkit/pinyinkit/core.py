@@ -29,6 +29,7 @@ _true_pin_re = re.compile(r"[^a-zA-Z]+")
 
 is_initialized = False
 
+
 def load_single_dict(pinyin_dict, style='default'):
     """载入用户自定义的单字拼音库
 
@@ -317,7 +318,7 @@ def pinyin(hans, style=Style.TONE, heteronym=False,
       >>> pinyin('中心', style=Style.CYRILLIC)
       [['чжун1'], ['синь1']]
     """
-    global  is_initialized
+    global is_initialized
     if not is_initialized:
         initialize()
         is_initialized = True
@@ -355,7 +356,7 @@ def slug(hans, style=Style.NORMAL, heteronym=False, separator='-',
       >>> pypinyin.slug('中国人', style=Style.CYRILLIC)
       'чжун1-го2-жэнь2'
     """
-    global  is_initialized
+    global is_initialized
     if not is_initialized:
         initialize()
         is_initialized = True
@@ -402,7 +403,7 @@ def lazy_pinyin(hans, style=Style.NORMAL, errors='default', strict=True):
       >>> lazy_pinyin('中心', style=Style.CYRILLIC)
       ['чжун1', 'синь1']
     """
-    global  is_initialized
+    global is_initialized
     if not is_initialized:
         initialize()
         is_initialized = True
