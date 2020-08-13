@@ -10,6 +10,10 @@ phoneme toolkit: 音素相关的文本处理工具箱。
 pip install -U phkit
 ```
 
+### v0.2.3
+- 汉字转拼音轻量化。
+- 词语拼音词典去除全都是默认拼音的词语。
+
 ### v0.2.2
 - 修正安装依赖报错问题。
 
@@ -48,7 +52,7 @@ OOV
 依存句法分析
 
 ### 版本
-v0.2.2
+v0.2.3
 
 ## pinyinkit
 文本转拼音的模块，依赖python-pinyin，jieba，phrase-pinyin-data模块。

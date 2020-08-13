@@ -107,19 +107,17 @@ def initialize():
     # 导入数据
     inpath = Path(__file__).absolute().parent.joinpath('phrase_pinyin.txt.py')
     _phrases_dict = parse_phrase_txt(inpath)
-    load_phrases_dict(_phrases_dict)  # 398815
+    load_phrases_dict(_phrases_dict)  # big:398815 small:36776
 
     inpath = Path(__file__).absolute().parent.joinpath('single_pinyin.txt.py')
     _pinyin_dict = parse_pinyin_txt(inpath)
     load_single_dict(_pinyin_dict)  # 41451
 
-    # inpath = Path(__file__).absolute().parent.joinpath('phrase_pinyin_zdic.txt.py')
-    # _pinyin_dict = parse_pinyin_txt(inpath)
-    # load_single_dict(_pinyin_dict)  # 42078
-
     jieba.initialize()
-    for word, _ in tqdm(_phrases_dict.items(), desc='jieba add word', ncols=80, mininterval=1):
-        jieba.add_word(word)
+    # for word, _ in tqdm(_phrases_dict.items(), desc='jieba add word', ncols=80, mininterval=1):
+    #     jieba.add_word(word)
+    global is_initialized
+    is_initialized = True
 
 
 class Pinyin(object):
