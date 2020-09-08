@@ -1,9 +1,10 @@
 """
-## chinese
+### chinese
 适用于中文、英文和中英混合的音素，其中汉字拼音采用清华大学的音素，英文字符分字母和英文。
 
-中文音素简介：
+- 中文音素简介：
 
+```
 声母：
 aa b c ch d ee f g h ii j k l m n oo p q r s sh t uu vv x z zh
 
@@ -28,6 +29,7 @@ w y 0 6 7 8 9
 
 其他：
 _ ~  - *
+```
 """
 from .convert import fan2jian, jian2fan, quan2ban, ban2quan
 from .number import say_digit, say_decimal, say_number

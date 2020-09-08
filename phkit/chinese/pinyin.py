@@ -3,7 +3,7 @@
 # author: kuangdd
 # date: 2020/2/17
 """
-### pinyin
+#### pinyin
 转为拼音的方法，汉字转拼音，分离声调。
 
 拼音为字母+数字形式，例如pin1。

@@ -21628,7 +21628,7 @@ U+8BFD: fěi  # 诽
 U+8BFE: kè  # 课
 U+8BFF: wěi  # 诿
 U+8C00: yú  # 谀
-U+8C01: shéi,shuí  # 谁
+U+8C01: shuí,shéi  # 谁
 U+8C02: shěn  # 谂
 U+8C03: diào,tiáo  # 调
 U+8C04: chǎn  # 谄

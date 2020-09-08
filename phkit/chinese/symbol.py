@@ -3,7 +3,7 @@
 # author: kuangdd
 # date: 2020/2/16
 """
-### symbol
+#### symbol
 音素标记。
 中文音素，简单英文音素，简单中文音素。
 """

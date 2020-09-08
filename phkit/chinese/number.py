@@ -3,7 +3,7 @@
 # author: kuangdd
 # date: 2020/2/16
 """
-### number
+#### number
 数字读法。
 
 按数值大小读，一个一个数字读。

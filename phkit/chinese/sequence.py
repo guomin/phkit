@@ -3,7 +3,7 @@
 # author: kuangdd
 # date: 2020/2/16
 """
-### sequence
+#### sequence
 转为序列的方法，文本转为音素列表，文本转为ID列表。
 
 拼音变调，拼音转音素。

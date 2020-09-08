@@ -8,37 +8,51 @@
 ## phkit
 phoneme toolkit: 音素相关的文本处理工具箱。
 
-### 安装
+#### 安装
 
 ```
 pip install -U phkit
 ```
+"""
+__version__ = "0.2.4"
 
-### v0.2.3
+version_doc = """
+#### 版本
+v{}
+""".format(__version__)
+
+history_doc = """
+### 历史版本
+
+#### v0.2.4
+- 修正几个默认拼音。
+
+#### v0.2.3
 - 汉字转拼音轻量化。
 - 词语拼音词典去除全都是默认拼音的词语。
 
-### v0.2.2
+#### v0.2.2
 - 修正安装依赖报错问题。
 
-### v0.2.1
+#### v0.2.1
 - 增加中文的text_to_sequence方法，可替换英文版本应对中文环境。
 - 兼容v0.1.0（含）之前版本需要在python3.7（含）版本以上，否则请改为从phkit.chinese导入模块。
 
-### v0.2.0
+#### v0.2.0
 - 增加文本转拼音的模块，依赖python-pinyin，jieba，phrase-pinyin-data模块。
 - 中文的音素方案移动到chinese模块。
 
-### v0.1.0
+#### v0.1.0
 - 增加英文版本的音素方案，包括英文字母和英文音素。
 - 增加简单的数字转中文的方法。
 
-todo:
+#### todo
+
+```
 文本正则化处理
 数字读法
 字符读法
 常见规则读法
-
 
 文本转拼音
 pypinyin
@@ -54,13 +68,8 @@ OOV
 分词
 命名实体识别
 依存句法分析
+```
 """
-__version__ = "0.2.3"
-
-version_doc = """
-### 版本
-v{}
-""".format(__version__)
 
 from phkit.chinese import __doc__ as doc_chinese
 from phkit.chinese.symbol import __doc__ as doc_symbol
@@ -75,7 +84,8 @@ from .pinyinkit import __doc__ as doc_pinyinkit
 readme_docs = [__doc__, version_doc,
                doc_pinyinkit,
                doc_chinese, doc_symbol, doc_sequence, doc_pinyin, doc_phoneme, doc_number, doc_convert,
-               doc_english]
+               doc_english,
+               history_doc]
 
 from .chinese import text_to_sequence as chinese_text_to_sequence, sequence_to_text as chinese_sequence_to_text
 from .english import text_to_sequence as english_text_to_sequence, sequence_to_text as english_sequence_to_text

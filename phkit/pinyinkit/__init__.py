@@ -1,5 +1,5 @@
 """
-## pinyinkit
+### pinyinkit
 文本转拼音的模块，依赖python-pinyin，jieba，phrase-pinyin-data模块。
 """
 import re
