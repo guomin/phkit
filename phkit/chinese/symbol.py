@@ -15,10 +15,17 @@ _oov = '*'
 
 # 中文音素表
 # 声母：27
+# _shengmu = [
+#     'aa', 'b', 'c', 'ch', 'd', 'ee', 'f', 'g', 'h', 'ii', 'j', 'k', 'l', 'm', 'n', 'oo', 'p', 'q', 'r', 's', 'sh',
+#     't', 'uu', 'vv', 'x', 'z', 'zh'
+# ]
+
+# 声母标贝
 _shengmu = [
-    'aa', 'b', 'c', 'ch', 'd', 'ee', 'f', 'g', 'h', 'ii', 'j', 'k', 'l', 'm', 'n', 'oo', 'p', 'q', 'r', 's', 'sh',
-    't', 'uu', 'vv', 'x', 'z', 'zh'
+    'b', 'c', 'ch', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 'sh',
+    't', 'x', 'z', 'zh'
 ]
+
 
 # 韵母：41
 _yunmu = [
@@ -26,6 +33,15 @@ _yunmu = [
     'iong', 'iu', 'ix', 'iy', 'iz', 'o', 'ong', 'ou', 'u', 'ua', 'uai', 'uan', 'uang', 'ueng', 'ui', 'un', 'uo', 'v',
     'van', 've', 'vn', 'ng', 'uong'
 ]
+
+
+# 韵母标贝
+_yunmu = [
+    'a', 'ai', 'an', 'ang', 'ao', 'e', 'ei', 'en', 'eng', 'er', 'i', 'ia', 'ian', 'iang', 'iao', 'ie', 'ii', 'in', 'ing',
+    'iong', 'iu', 'ix', 'iy', 'iz', 'o', 'ong', 'ou', 'u', 'ua', 'uai', 'uan', 'uang', 'ueng', 'ui', 'un', 'uo', 'v',
+    'van', 've', 'vn', 'ng', 'uong', 'iii', 'uei', 'uen', 'iou'
+]
+
 
 # 声调：5
 _shengdiao = ['1', '2', '3', '4', '5']

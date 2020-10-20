@@ -20,12 +20,18 @@ _en_re = re.compile(r"([a-zA-Z]+)")
 
 phs = ({w for p in shengyun2ph_dict.values() for w in p.split()}
        | set(diao2ph_dict.values()) | set(char2ph_dict.values()))
-
+print(phs)
+print(symbol_chinese)
+print(phs - set(symbol_chinese))
 assert bool(phs - set(symbol_chinese)) is False
 
 ph2id_dict = {p: i for i, p in enumerate(symbol_chinese)}
 id2ph_dict = {i: p for i, p in enumerate(symbol_chinese)}
 
+print(ph2id_dict)
+print(id2ph_dict)
+print(len(ph2id_dict))
+print(len(id2ph_dict))
 assert len(ph2id_dict) == len(id2ph_dict)
 
 
@@ -42,7 +48,9 @@ def text2phoneme(text):
     text = normalize_chinese(text)
     text = normalize_english(text)
     pys = text2pinyin(text, errors=lambda x: (x,))
+    # print(pys)
     phs = pinyin2phoneme(pys)
+    # print(phs)
     phs = change_diao(phs)
     return phs
 
