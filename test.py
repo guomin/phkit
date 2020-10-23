@@ -4,8 +4,11 @@
 # date: 2020/2/18
 """
 """
+import re
+import os
 from phkit import text2phoneme, text2sequence, symbol_chinese
 from phkit import chinese_sequence_to_text, chinese_text_to_sequence
+from phkit import chinese_split2sentence
 
 def test_phkit():
     from phkit import text2phoneme, text2sequence, symbol_chinese
@@ -62,13 +65,20 @@ def text2phoneme2(text):
 def test_phkit_bb():
     text = "汉字转音素"
     text = "这场抗议活动究竟是如何发展演变的 又究竟是谁伤害了谁"
+    multi_sentences = "大写字母用于随机变量，而小写字母用于随机变量的具体值或标量函数。字符串去空格及去指定字符。去掉空格后判断字符串长度，仍然可以判断字符串是不是全部为空格。"
+    multi_sentences = """曾任清华大学精仪系主任，清华大学科技处处长，清华大学校长助理，校务委员会副主任，深圳清华大学研究院原院长，深圳烯旺新材料科技股份有限公司创始人、董事长。他率先将石墨烯这一“21世纪的未来材料”引进中国，是中国石墨烯产业的开拓者、推动者和引领者，也是国内科技创新、科技孵化及产学研机制创新领域的成功实践者。
+    ，李屹，1970年生，清华大学1986级汽车系校友，深圳光峰科技股份有限公司董事长。作为显示行业的驱动者，李屹带领团队于2007年在全球率先发明了ALPD激光显示技术，该技术被国际同业视为下一代激光显示的发展方向，并在全球范围率先实现技术产业化，光峰科技是国内显示行业为数不多拥有原创专利技术和系统产业化技术的高新技术企业。
+    """
+    multi_sentences = "1970年生，清华大学1986级汽车系校友"
 
     texts = [
         "学校深入实施人才强校战略", "深化人事制度改革", "教职工队伍整体水平显著提高", "为学校各项事业发展奠定了坚实基础",
         "世界一流大学建设取得了历史性进步", "有一流的教师才有一流的教育", "才能培养出一流的人才", "强化教职工队伍建设的主体责任",
         "作为新时代的清华教师", "为培养德智体美劳全面发展的社会主义建设者和接班人作出新的贡献",
-        "谢谢", "再见", "对不起", "请拿好杯子", "谢谢再见对不起"
+        "谢谢", "再见", "对不起", "请拿好杯子", "谢谢再见对不起",
     ]
+    texts = chinese_split2sentence(multi_sentences)
+    print(texts)
     results = []
     for text in texts:
         result = text2phoneme2(text)

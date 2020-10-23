@@ -63,6 +63,24 @@ def say_decimal(num: str):
 def convert_number(text):
     parts = _number_group_re.split(text)
     outs = []
+    for idx, elem in enumerate(parts):
+        if elem.isdigit():
+            if len(elem) <= 9:
+                if ((idx<(len(parts)-1)) and len(elem) <= 4 and (parts[idx+1][0] in ['年'])) \
+                        or (len(elem) == 4 and idx<(len(parts)-1) and (parts[idx+1][0] in ['级'])):
+                    outs.append(say_digit(elem))
+                else:
+                    outs.append(say_number(elem))
+            else:
+                outs.append(say_digit(elem))
+        else:
+            outs.append(elem)
+    return ''.join(outs)
+
+
+def convert_number_old(text):
+    parts = _number_group_re.split(text)
+    outs = []
     for elem in parts:
         if elem.isdigit():
             if len(elem) <= 9:

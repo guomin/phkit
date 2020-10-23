@@ -39,6 +39,7 @@ from .sequence import symbol_chinese, ph2id_dict, id2ph_dict
 
 from .symbol import symbol_chinese as symbols
 from .phoneme import shengyun2ph_dict
+from .paragraph import split2sentence
 
 
 def text_to_sequence(src, cleaner_names=None,  **kwargs):
