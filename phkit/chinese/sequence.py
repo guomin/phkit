@@ -47,6 +47,7 @@ def text2phoneme(text):
     """
     text = normalize_chinese(text)
     text = normalize_english(text)
+    print("正则化:\t{}".format(text))
     pys = text2pinyin(text, errors=lambda x: (x,))
     # print(pys)
     phs = pinyin2phoneme(pys)
